@@ -6,8 +6,8 @@ var screenbg = 250; // off white background
 var lastscreenshot=61; // last screenshot never taken
 
 function preload() {
-  img = loadImage('/diyps2023/images/brick.png')
-  img2 = loadImage('/diyps2023/images/star.png')
+  img = loadImage('brick.png')
+  img2 = loadImage('star.png')
 }
 
 function setup() {
