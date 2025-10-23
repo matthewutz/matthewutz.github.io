@@ -1,22 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Ask for shelter</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ask for salvation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+    }
+    .game-container {
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+      margin: 0 auto;
+    }
+    .game-image {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+    }
+    .game-text {
+      color: white;
+      font-size: 1.1rem;
+      margin: 1rem 0;
+    }
+    .game-title {
+      color: gray;
+      margin-bottom: 2rem;
+    }
+    .game-link {
+      color: gray;
+      text-decoration: none;
+      display: inline-block;
+      margin: 0.5rem 1rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid gray;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    .game-link:hover {
+      color: white;
+      border-color: white;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .home-btn {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
-<body style="background-color:black;">
-
-<h1 style="color:gray;">Ask for shelter</h1>
-
-<img src="interior.png" alt="interior">
-
-<p></p>
-<i style="color:white;">The hatch shuts abruptly, and the door opens.</i>
-<p></p>
-<i style="color:white;">There is not a person in sight as you are greeted with the interior of the cathedral.</i>
-<p></p>
-<a style="color:gray;" href="wander.html">Wander further in</a>
-<p></p>
-<a style="color:gray;" href="leave.html">Leave</a>
-
+<body>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="game-container">
+          <h1 class="game-title">Ask for salvation</h1>
+          
+          <img src="interior.png" alt="interior" class="game-image">
+          
+          <p class="game-text"><i>The hatch shuts abruptly, and the door opens.</i></p>
+          <p class="game-text"><i>There is not a person in sight as you are greeted with the interior of the cathedral.</i></p>
+          
+          <div class="mt-4">
+            <a href="wander.html" class="game-link">Wander further in</a>
+            <a href="leave.html" class="game-link">Leave</a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

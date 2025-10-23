@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work - Matthew Utz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+    <h1 class="nav-title">Work</h1>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="work.html" class="active">Work</a>
+        <a href="about.html">About</a>
+    </div>
+</nav>
+
+<div class="work-container">
+    <div class="work-grid">
+        <div class="work-item">
+            <img src="images/placeholder.jpg" alt="Project 1">
+            <div class="work-item-title">Project 1</div>
+        </div>
+        <div class="work-item">
+            <img src="images/placeholder.jpg" alt="Project 2">
+            <div class="work-item-title">Project 2</div>
+        </div>
+        <div class="work-item">
+            <a href="eponymous.html">
+                <img src="images/eponymousprev.jpg" alt="Eponymous - 2025" class="project3-img">
+                <div class="work-item-title">Eponymous - 2025</div>
+            </a>
+        </div>
+        <div class="work-item">
+            <a href="rive.html">
+                <img src="images/riveprev.jpg" alt="Rive - 2025" class="project4-img">
+                <div class="work-item-title">Rive - 2025</div>
+            </a>
+        </div>
+        <div class="work-item">
+            <a href="evanescence.html">
+                <img src="images/evanescenceprev.jpg" alt="Evanescence - 2025" class="project5-img">
+                <div class="work-item-title">Evanescence - 2025</div>
+            </a>
+        </div>
+        <div class="work-item">
+            <a href="loneknight.html">
+                <img src="images/loneknightprev.png" alt="Lone Knight - 2024">
+                <div class="work-item-title">Lone Knight - 2024</div>
+            </a>
+        </div>
+        <div class="work-item">
+            <a href="selfportrait.html">
+                <img src="images/selfportraitprev.png" alt="Self Portrait - 2024">
+                <div class="work-item-title">Self Portrait - 2024</div>
+            </a>
+        </div>
+        <div class="work-item">
+            <a href="netart.html">
+                <img src="images/netartprev.png" alt="Net Art - 2024">
+                <div class="work-item-title">Net Art - 2024</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const project3Img = document.querySelector('.project3-img');
+    const project4Img = document.querySelector('.project4-img');
+    const project5Img = document.querySelector('.project5-img');
+    
+    if (project3Img) {
+        const originalSrc3 = project3Img.src;
+        project3Img.addEventListener('mouseenter', function() {
+            this.src = 'images/eponymousprevanim.gif';
+        });
+        project3Img.addEventListener('mouseleave', function() {
+            this.src = originalSrc3;
+        });
+    }
+    
+    if (project4Img) {
+        const originalSrc4 = project4Img.src;
+        project4Img.addEventListener('mouseenter', function() {
+            this.src = 'images/riveprevanim.gif';
+        });
+        project4Img.addEventListener('mouseleave', function() {
+            this.src = originalSrc4;
+        });
+    }
+    
+    if (project5Img) {
+        const originalSrc5 = project5Img.src;
+        project5Img.addEventListener('mouseenter', function() {
+            this.src = 'images/evanescenceprevanim.gif';
+        });
+        project5Img.addEventListener('mouseleave', function() {
+            this.src = originalSrc5;
+        });
+    }
+});
+</script>
+
+</body>
+</html>
+
