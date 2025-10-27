@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Work - Matthew Utz</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon32.ico">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,12 +20,16 @@
 <div class="work-container">
     <div class="work-grid">
         <div class="work-item">
-            <img src="images/placeholder.jpg" alt="Project 1">
-            <div class="work-item-title">Project 1</div>
+            <a href="luminescent.html">
+                <img src="images/luminescentprev.jpg" alt="Luminescent - 2025" class="project1-img">
+                <div class="work-item-title">ℓυՊ!η∊§¢∊η† - 2025</div>
+            </a>
         </div>
         <div class="work-item">
-            <img src="images/placeholder.jpg" alt="Project 2">
-            <div class="work-item-title">Project 2</div>
+            <a href="slicer.html">
+                <img src="images/slicerprev.jpg" alt="Slicer - 2025" class="project2-img">
+                <div class="work-item-title">§|!¢ƐЯ - 2025</div>
+            </a>
         </div>
         <div class="work-item">
             <a href="eponymous.html">
@@ -46,7 +51,7 @@
         </div>
         <div class="work-item">
             <a href="loneknight.html">
-                <img src="images/loneknightprev.png" alt="Lone Knight - 2024">
+                <img src="images/loneknightprev.jpg" alt="Lone Knight - 2024" class="project6-img">
                 <div class="work-item-title">Lone Knight - 2024</div>
             </a>
         </div>
@@ -67,39 +72,76 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    const project1Img = document.querySelector('.project1-img');
+    const project2Img = document.querySelector('.project2-img');
     const project3Img = document.querySelector('.project3-img');
     const project4Img = document.querySelector('.project4-img');
     const project5Img = document.querySelector('.project5-img');
+    const project6Img = document.querySelector('.project6-img');
     
-    if (project3Img) {
-        const originalSrc3 = project3Img.src;
-        project3Img.addEventListener('mouseenter', function() {
-            this.src = 'images/eponymousprevanim.gif';
-        });
-        project3Img.addEventListener('mouseleave', function() {
-            this.src = originalSrc3;
-        });
-    }
+    // Preload GIF files for faster loading
+    const gifUrls = [
+        'images/luminescentprevgif.gif',
+        'images/sliceprevanim.gif',
+        'images/eponymousprevanim.gif',
+        'images/riveprevanim.gif',
+        'images/evanescenceprevanim.gif',
+        'images/loneknightprevanim.gif'
+    ];
     
-    if (project4Img) {
-        const originalSrc4 = project4Img.src;
-        project4Img.addEventListener('mouseenter', function() {
-            this.src = 'images/riveprevanim.gif';
-        });
-        project4Img.addEventListener('mouseleave', function() {
-            this.src = originalSrc4;
-        });
-    }
+    // Preload all GIFs
+    gifUrls.forEach(url => {
+        const img = new Image();
+        img.src = url;
+    });
     
-    if (project5Img) {
-        const originalSrc5 = project5Img.src;
-        project5Img.addEventListener('mouseenter', function() {
-            this.src = 'images/evanescenceprevanim.gif';
-        });
-        project5Img.addEventListener('mouseleave', function() {
-            this.src = originalSrc5;
-        });
-    }
+    // Store original sources and preloaded GIF sources
+    const imageData = [
+        { img: project1Img, originalSrc: 'images/luminescentprev.jpg', gifSrc: 'images/luminescentprevgif.gif' },
+        { img: project2Img, originalSrc: 'images/slicerprev.jpg', gifSrc: 'images/sliceprevanim.gif' },
+        { img: project3Img, originalSrc: 'images/eponymousprev.jpg', gifSrc: 'images/eponymousprevanim.gif' },
+        { img: project4Img, originalSrc: 'images/riveprev.jpg', gifSrc: 'images/riveprevanim.gif' },
+        { img: project5Img, originalSrc: 'images/evanescenceprev.jpg', gifSrc: 'images/evanescenceprevanim.gif' },
+        { img: project6Img, originalSrc: 'images/loneknightprev.jpg', gifSrc: 'images/loneknightprevanim.gif' }
+    ];
+    
+    imageData.forEach(({ img, originalSrc, gifSrc }) => {
+        if (img) {
+            let isGifLoaded = false;
+            let isLoading = false;
+            
+            // Preload the GIF for this specific image
+            const preloadImg = new Image();
+            preloadImg.onload = function() {
+                isGifLoaded = true;
+            };
+            preloadImg.src = gifSrc;
+            
+            img.addEventListener('mouseenter', function() {
+                if (!isLoading && !isGifLoaded) {
+                    isLoading = true;
+                    // Show loading state if needed
+                    const tempImg = new Image();
+                    tempImg.onload = function() {
+                        img.src = gifSrc;
+                        isLoading = false;
+                        isGifLoaded = true;
+                    };
+                    tempImg.onerror = function() {
+                        // Fallback to original if GIF fails to load
+                        isLoading = false;
+                    };
+                    tempImg.src = gifSrc;
+                } else if (isGifLoaded) {
+                    img.src = gifSrc;
+                }
+            });
+            
+            img.addEventListener('mouseleave', function() {
+                img.src = originalSrc;
+            });
+        }
+    });
 });
 </script>
 
