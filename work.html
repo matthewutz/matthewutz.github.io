@@ -67,6 +67,18 @@
                 <div class="work-item-title">Net Art - 2024</div>
             </a>
         </div>
+        <div class="work-item">
+            <a href="w95game.html">
+                <img src="images/w95gameprev.jpg" alt="Windows 95 Game - 2024" class="project7-img">
+                <div class="work-item-title">Windows 95 Game - 2024</div>
+            </a>
+        </div>
+        <div class="work-item">
+            <a href="graffitips.html">
+                <img src="images/graffitipsprev.jpg" alt="Graffiti PS - 2024" class="project8-img">
+                <div class="work-item-title">Graffiti PS - 2024</div>
+            </a>
+        </div>
     </div>
 </div>
 
@@ -78,31 +90,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const project4Img = document.querySelector('.project4-img');
     const project5Img = document.querySelector('.project5-img');
     const project6Img = document.querySelector('.project6-img');
+    const project7Img = document.querySelector('.project7-img');
+    const project8Img = document.querySelector('.project8-img');
     
-    // Preload GIF files for faster loading
+
     const gifUrls = [
         'images/luminescentprevgif.gif',
         'images/sliceprevanim.gif',
         'images/eponymousprevanim.gif',
         'images/riveprevanim.gif',
         'images/evanescenceprevanim.gif',
-        'images/loneknightprevanim.gif'
+        'images/loneknightprevanim.gif',
+        'images/w95gameprevanim.gif',
+        'images/graffitiprevanim.gif'
     ];
     
-    // Preload all GIFs
     gifUrls.forEach(url => {
         const img = new Image();
         img.src = url;
     });
     
-    // Store original sources and preloaded GIF sources
     const imageData = [
         { img: project1Img, originalSrc: 'images/luminescentprev.jpg', gifSrc: 'images/luminescentprevgif.gif' },
         { img: project2Img, originalSrc: 'images/slicerprev.jpg', gifSrc: 'images/sliceprevanim.gif' },
         { img: project3Img, originalSrc: 'images/eponymousprev.jpg', gifSrc: 'images/eponymousprevanim.gif' },
         { img: project4Img, originalSrc: 'images/riveprev.jpg', gifSrc: 'images/riveprevanim.gif' },
         { img: project5Img, originalSrc: 'images/evanescenceprev.jpg', gifSrc: 'images/evanescenceprevanim.gif' },
-        { img: project6Img, originalSrc: 'images/loneknightprev.jpg', gifSrc: 'images/loneknightprevanim.gif' }
+        { img: project6Img, originalSrc: 'images/loneknightprev.jpg', gifSrc: 'images/loneknightprevanim.gif' },
+        { img: project7Img, originalSrc: 'images/w95gameprev.jpg', gifSrc: 'images/w95gameprevanim.gif' },
+        { img: project8Img, originalSrc: 'images/graffitipsprev.jpg', gifSrc: 'images/graffitiprevanim.gif' }
     ];
     
     imageData.forEach(({ img, originalSrc, gifSrc }) => {
@@ -110,7 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
             let isGifLoaded = false;
             let isLoading = false;
             
-            // Preload the GIF for this specific image
             const preloadImg = new Image();
             preloadImg.onload = function() {
                 isGifLoaded = true;
@@ -120,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
             img.addEventListener('mouseenter', function() {
                 if (!isLoading && !isGifLoaded) {
                     isLoading = true;
-                    // Show loading state if needed
                     const tempImg = new Image();
                     tempImg.onload = function() {
                         img.src = gifSrc;
@@ -128,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         isGifLoaded = true;
                     };
                     tempImg.onerror = function() {
-                        // Fallback to original if GIF fails to load
                         isLoading = false;
                     };
                     tempImg.src = gifSrc;

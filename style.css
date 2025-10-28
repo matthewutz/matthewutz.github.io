@@ -119,7 +119,7 @@ img:hover {
 
 .work-grid {
     position: relative;
-    min-height: 3500px;
+    min-height: 4500px;
 }
 
 .work-item {
@@ -191,6 +191,16 @@ img:hover {
 .work-item:nth-child(8) {
     top: 2600px;
     right: 15%;
+}
+
+.work-item:nth-child(9) {
+    top: 2950px;
+    left: 8%;
+}
+
+.work-item:nth-child(10) {
+    top: 3350px;
+    right: 18%;
 }
 
 @media (max-width: 1200px) {
@@ -265,13 +275,13 @@ img:hover {
 .project3-img,
 .project4-img,
 .project5-img,
-.project6-img {
+.project6-img,
+.project7-img,
+.project8-img {
     transition: all 0.3s ease;
-    /* Optimize image rendering for better performance */
     image-rendering: optimizeSpeed;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    /* Prevent layout shift during loading */
     min-height: 600px;
     background-color: #000;
 }
@@ -326,6 +336,20 @@ img:hover {
     width: 600px;
     height: 600px;
     max-width: 100%;
+}
+
+.w95game-iframe {
+    width: 600px;
+    height: 600px;
+    max-width: 100%;
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.05);
+}
+
+.graffitips-iframe {
+    width: 600px;
+    height: 404px;
+    max-width: 100%;
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.05);
 }
 
 .project-title {
